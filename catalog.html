@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Каталог - LURA</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+    <div class="container nav-container">
+      <a href="index.html" class="logo">LURA</a>
+      <nav>
+        <ul>
+          <li><a href="index.html">Главная</a></li>
+          <li><a href="catalog.html">Каталог</a></li>
+          <li><a href="#">Контакты</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+  
+  <main class="container">
+    <h1 class="catalog-title">Каталог продукции</h1>
+    
+    <div class="search-sort">
+      <div class="search-box">
+        <input type="text" placeholder="Поиск по названию..." id="search-input">
+      </div>
+      <div class="sort-options">
+        <select id="sort-select">
+          <option value="default">Сортировать</option>
+          <option value="price-asc">Цена (по возрастанию)</option>
+          <option value="price-desc">Цена (по убыванию)</option>
+          <option value="rating">По рейтингу</option>
+        </select>
+      </div>
+    </div>
+    
+    <div class="products">
+      <div class="product-card" data-category="уход-за-лицом" data-price="1200" data-rating="4.5">
+        <div class="product-image">
+          <img src="https://img.freepik.com/free-photo/beauty-cosmetics-product-with-soft-pink-tones_23-2151005579.jpg?ga=GA1.1.1185304707.1750260383&semt=ais_hybrid&w=740" alt="Очищающий гель">
+        </div>
+        <div class="product-info">
+          <h3 class="product-title">Очищающий гель для лица</h3>
+          <span class="product-category">Уход за лицом</span>
+          <div class="product-price">1 200 ₽</div>
+          <div class="product-rating">★★★★☆ 4.5</div>
+          <button class="btn">В корзину</button>
+        </div>
+      </div>
+
+      <div class="product-card" data-category="уход-за-телом" data-price="950" data-rating="4.2">
+        <div class="product-image">
+          <img src="https://img.freepik.com/free-photo/flat-lay-hydro-alcoholic-gel-with-bottle_23-2148775394.jpg?ga=GA1.1.1185304707.1750260383&semt=ais_hybrid&w=740" alt="Увлажняющий лосьон">
+        </div>
+        <div class="product-info">
+          <h3 class="product-title">Увлажняющий лосьон</h3>
+          <span class="product-category">Уход за телом</span>
+          <div class="product-price">950 ₽</div>
+          <div class="product-rating">★★★★☆ 4.2</div>
+          <button class="btn">В корзину</button>
+        </div>
+      </div>
+
+      <div class="product-card" data-category="макияж" data-price="1500" data-rating="4.8">
+        <div class="product-image">
+          <img src="https://img.freepik.com/free-photo/cosmetic-product-with-color-year-tones-3d-packaging_23-2151510148.jpg?ga=GA1.1.1185304707.1750260383&semt=ais_hybrid&w=740" alt="Натуральная помада">
+        </div>
+        <div class="product-info">
+          <h3 class="product-title">Натуральная помада</h3>
+          <span class="product-category">Макияж</span>
+          <div class="product-price">1 500 ₽</div>
+          <div class="product-rating">★★★★★ 4.8</div>
+          <button class="btn">В корзину</button>
+        </div>
+      </div>
+
+      <div class="product-card" data-category="уход-за-волосами" data-price="1800" data-rating="4.7">
+        <div class="product-image">
+          <img src="https://img.freepik.com/free-photo/flat-lay-hydro-alcoholic-gel-with-copy-space-bottle_23-2148775360.jpg?ga=GA1.1.1185304707.1750260383&semt=ais_hybrid&w=740" alt="Шампунь для объема">
+        </div>
+        <div class="product-info">
+          <h3 class="product-title">Шампунь для объема</h3>
+          <span class="product-category">Уход за волосами</span>
+          <div class="product-price">1 800 ₽</div>
+          <div class="product-rating">★★★★★ 4.7</div>
+          <button class="btn">В корзину</button>
+        </div>
+      </div>
+
+      <div class="product-card" data-category="уход-за-лицом" data-price="1350" data-rating="4.3">
+        <div class="product-image">
+          <img src="https://img.freepik.com/free-photo/beauty-cosmetics-product-with-soft-pink-tones_23-2151005559.jpg?ga=GA1.1.1185304707.1750260383&semt=ais_hybrid&w=740" alt="Тоник для лица">
+        </div>
+        <div class="product-info">
+          <h3 class="product-title">Тоник для лица</h3>
+          <span class="product-category">Уход за лицом</span>
+          <div class="product-price">1 350 ₽</div>
+          <div class="product-rating">★★★★☆ 4.3</div>
+          <button class="btn">В корзину</button>
+        </div>
+      </div>
+
+      <div class="product-card" data-category="макияж" data-price="1100" data-rating="4.0">
+        <div class="product-image">
+          <img src="https://img.freepik.com/free-photo/makeup-cosmetics-presentation_23-2151928823.jpg?ga=GA1.1.1185304707.1750260383&semt=ais_hybrid&w=740" alt="Тушь для ресниц">
+        </div>
+        <div class="product-info">
+          <h3 class="product-title">Тушь для ресниц</h3>
+          <span class="product-category">Макияж</span>
+          <div class="product-price">1 100 ₽</div>
+          <div class="product-rating">★★★★☆ 4.0</div>
+          <button class="btn">В корзину</button>
+        </div>
+      </div>
+
+      <div class="product-card" data-category="уход-за-телом" data-price="1600" data-rating="4.6">
+        <div class="product-image">
+          <img src="https://img.freepik.com/free-photo/organic-cosmetic-product-with-dreamy-aesthetic-fresh-background_23-2151382805.jpg?ga=GA1.1.1185304707.1750260383&semt=ais_hybrid&w=740" alt="Масло для тела">
+        </div>
+        <div class="product-info">
+          <h3 class="product-title">Масло для тела</h3>
+          <span class="product-category">Уход за телом</span>
+          <div class="product-price">1 600 ₽</div>
+          <div class="product-rating">★★★★★ 4.6</div>
+          <button class="btn">В корзину</button>
+        </div>
+      </div>
+
+      <div class="product-card" data-category="уход-за-лицом" data-price="2200" data-rating="4.9">
+        <div class="product-image">
+          <img src="https://img.freepik.com/free-photo/beauty-cosmetics-product-with-soft-pink-tones_23-2151005598.jpg?ga=GA1.1.1185304707.1750260383&semt=ais_hybrid&w=740" alt="Ночной крем">
+        </div>
+        <div class="product-info">
+          <h3 class="product-title">Ночной крем</h3>
+          <span class="product-category">Уход за лицом</span>
+          <div class="product-price">2 200 ₽</div>
+          <div class="product-rating">★★★★★ 4.9</div>
+          <button class="btn">В корзину</button>
+        </div>
+      </div>
+    </div>
+    
+    <div class="pagination">
+      <button class="page-btn active">1</button>
+      <button class="page-btn">2</button>
+      <button class="page-btn">3</button>
+    </div>
+  </main>
+  
+  <footer>
+    <div class="container">
+      <p>© 2025 LURA. Все права защищены.</p>
+    </div>
+  </footer>
+</body>
+</html>
