@@ -258,9 +258,10 @@ document.addEventListener('DOMContentLoaded', function() {
     const end = start + itemsPerPage;
     const productsToShow = filteredProducts.slice(start, end);
     
-    productsContainer.innerHTML = productsToShow.map(product => `
-      <div class="product-card" data-category="${product.category}" 
-           data-price="${product.price}" data-rating="${product.rating}">
+    productsContainer.innerHTML = filteredProducts
+      .slice(start, end)
+      .map(product => `
+        <div class="product-card" onclick="window.location.href='product-${product.id}.html'">
         <div class="product-image">
           <img src="${product.image}" alt="${product.title}">
         </div>
@@ -269,7 +270,7 @@ document.addEventListener('DOMContentLoaded', function() {
           <span class="product-category">${product.category}</span>
           <div class="product-price">${formatPrice(product.price)} ₽</div>
           <div class="product-rating">${renderRating(product.rating)}</div>
-          <button class="btn">В корзину</button>
+          <button class="btn" onclick="event.stopPropagation()">В корзину</button>
         </div>
       </div>
     `).join('');
