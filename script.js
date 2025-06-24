@@ -344,3 +344,102 @@ document.addEventListener('DOMContentLoaded', function() {
            ` ${rating.toFixed(1)}`;
   }
 });
+
+// Простой скрипт для галереи изображений
+document.addEventListener('DOMContentLoaded', function() {
+  const mainImage = document.querySelector('.product-page-main-image');
+  const thumbnails = document.querySelectorAll('.product-page-thumbnail');
+  
+  thumbnails.forEach(thumb => {
+    thumb.addEventListener('click', function() {
+      thumbnails.forEach(t => t.classList.remove('active'));
+      this.classList.add('active');
+      mainImage.src = this.src.replace('-thumb', '-main');
+    });
+  });
+});
+
+// Загружаем отзывы при загрузке страницы
+document.addEventListener('DOMContentLoaded', function() {
+  loadReviews();
+
+  document.getElementById('reviewForm').addEventListener('submit', function(e) {
+    e.preventDefault();
+    
+    const name = document.getElementById('userName').value;
+    const text = document.getElementById('userReview').value;
+    const rating = document.querySelector('input[name="rating"]:checked')?.value;
+    
+    if (!name || !text || !rating) {
+      alert('Пожалуйста, заполните все поля и поставьте оценку!');
+      return;
+    }
+    
+    const review = {
+      name: name,
+      text: text,
+      rating: rating,
+      date: new Date().toLocaleDateString('ru-RU')
+    };
+
+    addReview(review);
+
+    this.reset();
+
+    document.querySelectorAll('input[name="rating"]').forEach(radio => {
+      radio.checked = false;
+    });
+  });
+});
+
+// Функция добавления отзыва
+function addReview(review) {
+  let reviews = JSON.parse(localStorage.getItem('productReviews')) || [];
+
+  reviews.push(review);
+
+  localStorage.setItem('productReviews', JSON.stringify(reviews));
+
+  loadReviews();
+
+  updateAverageRating();
+}
+
+// Функция загрузки отзывов
+function loadReviews() {
+  const reviewsList = document.getElementById('reviews-list');
+  reviewsList.innerHTML = '';
+  
+  const reviews = JSON.parse(localStorage.getItem('productReviews')) || [];
+  
+  if (reviews.length === 0) {
+    reviewsList.innerHTML = '<p>Пока нет отзывов. Будьте первым!</p>';
+  } else {
+    reviews.forEach(function(review) {
+      const reviewElement = document.createElement('div');
+      reviewElement.className = 'review';
+      reviewElement.innerHTML = `
+        <p><strong>${review.name}</strong> (${review.date})</p>
+        <div class="review-rating">${'★'.repeat(review.rating)}${'☆'.repeat(5-review.rating)}</div>
+        <p>${review.text}</p>
+      `;
+      reviewsList.appendChild(reviewElement);
+    });
+  }
+  updateAverageRating();
+}
+
+// Функция обновления среднего рейтинга
+function updateAverageRating() {
+  const reviews = JSON.parse(localStorage.getItem('productReviews')) || [];
+  
+  if (reviews.length > 0) {
+    const total = reviews.reduce((sum, review) => sum + parseInt(review.rating), 0);
+    const average = (total / reviews.length).toFixed(1);
+    
+    if (document.getElementById('average-rating')) {
+      document.getElementById('average-rating').textContent = 
+        `${'★'.repeat(Math.round(average))}${'☆'.repeat(5-Math.round(average))} ${average} (${reviews.length} отзывов)`;
+    }
+  }
+}

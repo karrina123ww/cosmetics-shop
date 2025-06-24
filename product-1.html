@@ -36,7 +36,7 @@
         <h1 class="product-page-title">Очищающий гель для лица</h1>
         <div class="product-meta">
           <span class="product-category">Уход за лицом</span>
-          <span class="product-rating">★★★★☆ 4.5 (128 отзывов)</span>
+          <span class="product-rating" id="average-rating"></span>
         </div>
         <div class="product-page-price">1 200 ₽</div>
         
@@ -69,37 +69,40 @@
     <div class="product-page-reviews">
       <h2>Отзывы о товаре</h2>
       
-      <div class="product-page-review">
-        <div class="review-header">
-          <span class="review-author">Анна К.</span>
-          <span class="review-rating">★★★★★</span>
-        </div>
-        <div class="review-date">15.05.2023</div>
-        <div class="review-text">
-          <p>Отличный гель! Кожа после умывания не стянутая, очень приятная текстура. Пользуюсь уже месяц - улучшился цвет лица, прошли мелкие воспаления.</p>
-        </div>
-      </div>
+      <div id="reviews-list"></div>
       
-      <div class="product-page-review">
-        <div class="review-header">
-          <span class="review-author">Марина С.</span>
-          <span class="review-rating">★★★★☆</span>
-        </div>
-        <div class="review-date">02.06.2023</div>
-        <div class="review-text">
-          <p>Хороший гель, но для моего жирного типа кожи летом не хватает более глубокого очищения. Зато зимой - идеально!</p>
-        </div>
-      </div>
-      
-      <div class="product-page-review">
-        <div class="review-header">
-          <span class="review-author">Елена В.</span>
-          <span class="review-rating">★★★★★</span>
-        </div>
-        <div class="review-date">22.04.2023</div>
-        <div class="review-text">
-          <p>Люблю эту серию за натуральный состав. Гель нежно очищает, приятный травяной аромат. Буду покупать еще!</p>
-        </div>
+      <div class="review-form">
+        <h3>Добавить отзыв</h3>
+        <form id="reviewForm">
+          <div class="form-group">
+            <label>Ваше имя:</label>
+            <input type="text" id="userName" required>
+          </div>
+          
+          <div class="form-group">
+            <label>Оценка:</label>
+            <div class="rating">
+              <input type="radio" id="star5" name="rating" value="5">
+              <label for="star5">★</label>
+              <input type="radio" id="star4" name="rating" value="4">
+              <label for="star4">★</label>
+              <input type="radio" id="star3" name="rating" value="3">
+              <label for="star3">★</label>
+              <input type="radio" id="star2" name="rating" value="2">
+              <label for="star2">★</label>
+              <input type="radio" id="star1" name="rating" value="1" required>
+              <label for="star1">★</label>
+            </div>
+            <input type="hidden" id="reviewRating" value="0" required>
+          </div>
+          
+          <div class="form-group">
+            <label>Ваш отзыв:</label>
+            <textarea id="userReview" required></textarea>
+          </div>
+          
+          <button type="submit" class="submit-review">Отправить отзыв</button>
+        </form>
       </div>
     </div>
   </main>
