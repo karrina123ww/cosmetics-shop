@@ -443,3 +443,102 @@ function updateAverageRating() {
     }
   }
 }
+
+document.addEventListener('DOMContentLoaded', function() {
+  const form = document.getElementById('feedbackForm');
+  const nameInput = document.getElementById('name');
+  const emailInput = document.getElementById('email');
+  const messageInput = document.getElementById('message');
+  const nameError = document.getElementById('nameError');
+  const emailError = document.getElementById('emailError');
+  const messageError = document.getElementById('messageError');
+  const successMessage = document.getElementById('successMessage');
+
+  // Валидация имени
+  function validateName() {
+    const nameValue = nameInput.value.trim();
+    const nameRegex = /^[a-zA-Zа-яА-ЯёЁ\s]+$/;
+    
+    if (nameValue === '') {
+      nameError.textContent = 'Пожалуйста, введите ваше имя';
+      nameError.style.display = 'block';
+      nameInput.classList.add('error-input');
+      return false;
+    } else if (!nameRegex.test(nameValue)) {
+      nameError.textContent = 'Имя может содержать только буквы и пробелы';
+      nameError.style.display = 'block';
+      nameInput.classList.add('error-input');
+      return false;
+    } else {
+      nameError.style.display = 'none';
+      nameInput.classList.remove('error-input');
+      return true;
+    }
+  }
+
+  // Валидация email
+  function validateEmail() {
+    const emailValue = emailInput.value.trim();
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    
+    if (emailValue === '') {
+      emailError.textContent = 'Пожалуйста, введите ваш email';
+      emailError.style.display = 'block';
+      emailInput.classList.add('error-input');
+      return false;
+    } else if (!emailRegex.test(emailValue)) {
+      emailError.textContent = 'Пожалуйста, введите корректный email';
+      emailError.style.display = 'block';
+      emailInput.classList.add('error-input');
+      return false;
+    } else {
+      emailError.style.display = 'none';
+      emailInput.classList.remove('error-input');
+      return true;
+    }
+  }
+
+  // Валидация сообщения
+  function validateMessage() {
+    const messageValue = messageInput.value.trim();
+    
+    if (messageValue === '') {
+      messageError.textContent = 'Пожалуйста, введите ваше сообщение';
+      messageError.style.display = 'block';
+      messageInput.classList.add('error-input');
+      return false;
+    } else if (messageValue.length < 10) {
+      messageError.textContent = 'Сообщение должно содержать не менее 10 символов';
+      messageError.style.display = 'block';
+      messageInput.classList.add('error-input');
+      return false;
+    } else {
+      messageError.style.display = 'none';
+      messageInput.classList.remove('error-input');
+      return true;
+    }
+  }
+
+  nameInput.addEventListener('input', validateName);
+  emailInput.addEventListener('input', validateEmail);
+  messageInput.addEventListener('input', validateMessage);
+
+  form.addEventListener('submit', function(e) {
+    e.preventDefault();
+    
+    const isNameValid = validateName();
+    const isEmailValid = validateEmail();
+    const isMessageValid = validateMessage();
+    
+    if (isNameValid && isEmailValid && isMessageValid) {
+
+      successMessage.style.display = 'block';
+
+      form.reset();
+
+      setTimeout(() => {
+        successMessage.style.display = 'none';
+      }, 5000);
+    }
+  });
+});

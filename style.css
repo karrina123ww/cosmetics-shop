@@ -663,12 +663,6 @@ textarea.form-control {
   box-shadow: 0 4px 15px rgba(0,0,0,0.1);
 }
 
-.map-container img {
-  width: 100%;
-  height: auto;
-  display: block;
-}
-
 .contact-details {
   margin-top: 30px;
 }
@@ -702,4 +696,22 @@ textarea.form-control {
 .social-link:hover {
   background-color: #ff85a2;
   color: white;
+}
+
+.error {
+  color: #ff0000;
+  font-size: 14px;
+  margin-top: 5px;
+  display: none;
+}
+
+.form-control.error-input {
+  border: 1px solid #ff0000;
+}
+
+.success-message {
+  color: #008000;
+  font-size: 16px;
+  margin-top: 20px;
+  display: none;
 }
